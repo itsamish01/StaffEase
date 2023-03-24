@@ -1,4 +1,4 @@
-## StaffEase
+# StaffEase
 
 StaffEase is a comprehensive staffing management solution for small businesses, streamlining operations with real-time staff tracking, customer wait times, and an affordable POS system to enhance customer satisfaction and drive success.
 
