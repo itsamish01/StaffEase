@@ -15,7 +15,7 @@ StaffEase is a comprehensive staffing management solution for small businesses, 
 ## Prerequisites
 * Ensure you have the following installed on your system:
 
-* * Node.js (version 12.x or higher)
+* Node.js (version 12.x or higher)
 * npm (version 6.x or higher)
 * MongoDB (version 4.x or higher)
 
