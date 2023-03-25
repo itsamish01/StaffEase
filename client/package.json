@@ -1,7 +1,8 @@
 {
   "name": "client",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,6 +12,9 @@
     "coverage": "vitest run --coverage",
     "webhint": "hint http://localhost:8080"
   },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
   "dependencies": {
     "@apollo/client": "^3.7.10",
     "dotenv": "^16.0.3",
