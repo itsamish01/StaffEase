@@ -1,12 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./layouts/layout";
-import { About, Login } from "./pages";
+import { About, Login, PublicQuery } from "./pages";
 
 const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
-      { path: "/", element: <Login /> },
+      { path: "/", element: <PublicQuery /> },
+      { path: "/login", element: <Login /> },
       { path: "/about", element: <About /> },
     ],
   },
