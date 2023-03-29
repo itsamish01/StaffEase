@@ -2,48 +2,52 @@
  * @file models/business.js
  * @desc the Schema and model for the businesses.
  */
-import { Schema, model } from 'mongoose';
-import EmployeeSchema from './employee.js';
-import ReviewSchema from './review.js';
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
+import { model, Schema } from "mongoose";
+import config from "../../config.js";
+import { encodeToken, handleError } from "../../utils.js";
+import EmployeeSchema from "./employee.js";
+import ReviewSchema from "./review.js";
+
+// TODO: Why isn't contact a User?
 
 const BusinessSchema = new Schema(
   {
     businessName: {
-      type:     String,
+      type: String,
       required: true,
-      unique:   true,
+      unique: true,
     },
     email: {
-      type:     String,
+      type: String,
       required: true,
-      unique:   true,
-      match:    [/.+@.+\..+/, 'Must use a valid email address'],
+      unique: true,
+      match: [/.+@.+\..+/, "Must use a valid email address"],
     },
     description: {
-      type:     String,
+      type: String,
       required: true,
-      unique:   false,
+      unique: false,
     },
     location: {
-      type:     String,
+      type: String,
       required: true,
     },
-    contact:{
-      type:     String,
+    contact: {
+      type: String,
       required: true,
-      unique:   true
+      unique: true,
     },
     currentCapacity: {
-      type:     Number,
+      type: Number,
       required: true,
     },
-    maxCapacity:{
-        type:    Number,
-        required:true,
+    maxCapacity: {
+      type: Number,
+      required: true,
     },
-    employees:[EmployeeSchema],
-    reviews:[ReviewSchema]
+    employees: [EmployeeSchema],
+    reviews: [ReviewSchema],
   },
   // set this to use virtual below
   {
@@ -53,20 +57,32 @@ const BusinessSchema = new Schema(
   }
 );
 
+// TODO: Why is there not a BusinessUser who is a type of User?
 // has a user password
-BusinessSchema.pre('save', async function(next) {
-  if (this.isNew || this.isModified('password')) {
-    const saltRounds = 10;                        // TODO: Replace this with a variable in a .env file
-    this.password = await bcrypt.hash(this.password, saltRounds);
+BusinessSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
+    this.password = await bcrypt.hash(this.password, config.saltRounds);
   }
   next();
 });
 
+// TODO: Why is there not a BusinessUser who is a type of User?
 // custom method to compare and validate password for logging in
-BusinessSchema.methods.isCorrectPassword = async function (password){
-  return bcrypt.compare(password, this.password);
-}
+BusinessSchema.methods.authenticate = async function (password) {
+  // 'this' references the document (user) that called this method
+  const isCorrectPassword = bcrypt.compare(password, this.password);
 
-const BusinessModel = model('Business', BusinessSchema);
+  if (!isCorrectPassword) {
+    // ⚠️ Don't reveal specifics about why authentication failed 🦉
+    handleError(new Error("Invalid credentials."), "UNAUTHORIZED");
+  }
 
-export { BusinessSchema, BusinessModel };
+  return encodeToken({
+    username: this.username,
+    id: this._id,
+  });
+};
+
+const Business = model("Business", BusinessSchema);
+
+export { BusinessSchema, Business };

@@ -2,23 +2,23 @@
  * @file models/index.js
  * @desc The file for all models and their schemas.
  */
-import { userSchema, userModel } from './user.js'
-import { businessSchema, businessModel } from './business.js'
-import { employeeSchema, employeeModel } from './employee.js'
-import { reviewSchema, reviewModel } from './review.js'
+import { Business, BusinessSchema } from "./business.js";
+import { Employee, EmployeeSchema } from "./employee.js";
+import { Review, ReviewSchema } from "./review.js";
+import { User, UserSchema } from "./user.js";
 
 const schemas = {
-  userSchema,
-  businessSchema,
-  employeeSchema,
-  reviewSchema
-}
+  UserSchema,
+  BusinessSchema,
+  EmployeeSchema,
+  ReviewSchema,
+};
 
 const models = {
-  userModel,
-  businessModel,
-  employeeModel,
-  reviewModel
-}
+  User,
+  Business,
+  Employee,
+  Review,
+};
 
-export { schemas, models }
+export { schemas, models };

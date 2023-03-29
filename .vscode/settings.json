@@ -14,5 +14,5 @@
   "files.autoSave": "onFocusChange",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.validate.enable": false,
-  "cSpell.words": ["StaffEase"]
+  "cSpell.words": ["clockedin", "StaffEase", "virtuals"]
 }

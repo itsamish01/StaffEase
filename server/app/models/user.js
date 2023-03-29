@@ -2,31 +2,33 @@
  * @file models/user.js
  * @desc the Schema and model for the users.
  */
-import { Schema, model } from 'mongoose';
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
+import { model, Schema } from "mongoose";
+import config from "../../config.js";
+import { encodeToken, handleError } from "../../utils.js";
 
 const UserSchema = new Schema(
   {
     username: {
-      type:     String,
+      type: String,
       required: true,
-      unique:   true,
+      unique: true,
     },
     email: {
-      type:     String,
+      type: String,
       required: true,
-      unique:   true,
-      match:    [/.+@.+\..+/, 'Must use a valid email address'],
+      unique: true,
+      match: [/.+@.+\..+/, "Must use a valid email address"],
     },
     password: {
-      type:     String,
+      type: String,
       required: true,
     },
-    role:{
-      type:     String,
+    role: {
+      type: String,
       required: true,
-      unique:   false,
-    }
+      unique: false,
+    },
   },
   // set this to use virtual below
   {
@@ -37,19 +39,33 @@ const UserSchema = new Schema(
 );
 
 // has a user password
-UserSchema.pre('save', async function(next) {
-  if(this.isNew || this.isModified('password')){
-    const saltRounds = 10;                        // TODO: Replace this with a variable in a .env file
-    this.password = await bcrypt.hash(this.password, saltRounds);
+UserSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
+    this.password = await bcrypt.hash(this.password, config.saltRounds);
   }
   next();
 });
 
 // custom method to compare and validate password for logging in
-UserSchema.methods.isCorrectPassword = async function (password){
+UserSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
-}
+};
 
-const UserModel = model('User', UserSchema);
+UserSchema.methods.authenticate = async function (password) {
+  // 'this' references the document (user) that called this method
+  const isCorrectPassword = await bcrypt.compare(password, this.password);
 
-export { UserSchema, UserModel };
+  if (!isCorrectPassword) {
+    // ⚠️ Don't reveal specifics about why authentication failed 🦉
+    handleError(new Error("Invalid credentials."), "UNAUTHORIZED");
+  }
+
+  return encodeToken({
+    username: this.username,
+    id: this._id,
+  });
+};
+
+const User = model("User", UserSchema);
+
+export { UserSchema, User };
