@@ -1,9 +1,12 @@
-import { Input } from "../components/form";
 import { useQuery } from "@apollo/client";
 import { GET_RESTAURANTS } from "../schema/queries";
+import { PublicQueryList } from "../components/form";
 export default function PublicQuery() {
   const { loading, data } = useQuery(GET_RESTAURANTS);
-  const searchQuery = () => {};
+  const searchQuery = (event) => {
+    event.preventDefault();
+    console.log(data);
+  };
   return (
     <main>
       <h2 className="text-center">Search for Intelligent Restaurants</h2>
