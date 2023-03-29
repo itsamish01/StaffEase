@@ -1,7 +1,7 @@
 What I want:
 Stripe and ext possible AI api
 Possibly Perhaps HealthCare
-Compare to existing packages (product Emma: suggest based on questionaire)
+Compare to existing packages (product Emma: suggest based on questionnaire)
 Busy industry
 
 Amish (StaffEase)
@@ -10,7 +10,7 @@ what the wait time would be like. Also, help create a pos system that is afforda
 Understaffing issues,
 Live Staff updating/Food Storage (manager user);
 For that design want an ease of use. From POS manage Storage system.
-Google tells you how busy but not if service could collpase (about to run out food)
+Google tells you how busy but not if service could collapse (about to run out food)
 Employee to workload ratio;
 
 Tony Mai
@@ -27,7 +27,7 @@ Severe Weather Desktop notifications
 Geolocation
 
 Weather Based Restaurant Live Feed
-Amalgation of ideas Eating base upon weather, no cheeseburger in winter
+Amalgamation of ideas Eating base upon weather, no cheeseburger in winter
 Restaurant base on weather conditions
 Pop up restaurants
 We design a pop up restaurant based on weather and employment.
@@ -52,10 +52,10 @@ Login for Store
 Store Stripe login
 
 Login for Customer
-Or Output conditions to Twitter, social media feed, Mastadon
+Or Output conditions to Twitter, social media feed, Mastodon
 
 Many Store
-Consumer Side, Pins are colored, visually accessable
+Consumer Side, Pins are colored, visually accessible
 
 Necessary Input
 Staff Inputs
@@ -85,7 +85,7 @@ Data Expecting to Store
 Make a good looking appealing application.
 
 CLEAN NEW START
-An app for a demo five restautants
+An app for a demo five restaurants
 Business owner
 Real time staffing workload by way off staff to volume ratio
 Staff check in
@@ -94,14 +94,14 @@ Stores in DB, updates Active Employee count
 Purchases/ Store Busyness
 Determined by Active employee validation
 Has Button
-Method to determin workload
-Employee Planned Schdule vs actual employee number with ratio to determine volume
-(As a manager I expect 2 employees to service 50 poeple an hour)
+Method to determine workload
+Employee Planned Schedule vs actual employee number with ratio to determine volume
+(As a manager I expect 2 employees to service 50 people an hour)
 Customers during timestamp
 Each business One Shift, One Restaurant( populate with 5 replicas)
 Customer Side
 Reveals performance of restaurant (%of maximum i.e 50 per hour per 2 employees)
-Maybe though visting, metrics openly shown
+Maybe though visiting, metrics openly shown
 (stretch) Open Text Area, Customer input reviews, on button push sentiment analysis, AI
 (stretch) Sees it through social media post
 Chat Bot, not trained on

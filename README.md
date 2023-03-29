@@ -56,9 +56,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ## Developed by
 
-> TODO: Add links to developer's github profiles.
-
-- Amish Sharma
-- Jason Charney
-- Joshua Norris
-- Tony Mai
+- Amish Sharma (@itsamish01)
+- Jason Charney (@jrcharney)
+- Joshua Norris (@janorris65)
+- Tony Mai (@tonymai6)

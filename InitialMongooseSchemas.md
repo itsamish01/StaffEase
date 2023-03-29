@@ -4,7 +4,7 @@
 
 > NOTE: [Mermaid](https://mermaid-js.github.io/) is a diagramming charting tool that Github markdown and VS Code recognizes.
 > In VS Code, you will need a couple of plugins.
-> 
+>
 > - [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
 > - [Marp for VS Code](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
 >
@@ -15,7 +15,7 @@
 > NOTE: @jrcharney, here. My mind is still thinking in terms of MySQL, but these abbreviations should still be useful for MongoDB, Mongoose, and GraphQL. Just add a column to the following table to show the equivalent meaning.
 
 | Abbr. | Meaning               |
-|-------|-----------------------|
+| ----- | --------------------- |
 | `PK`  | `PRIMARY KEY`         |
 | `FK`  | `FOREIGN KEY`         |
 | `UK`  | `UNIQUE` (Key)        |
@@ -53,7 +53,7 @@ erDiagram
     Number id PK "NN AI"
     String firstName "NN"
     String lastName "NN"
-    Number business_id FK "NN"  
+    Number business_id FK "NN"
   }
 
 
