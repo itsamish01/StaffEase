@@ -2,6 +2,7 @@ export default `
   type Query {
     Business: Business
     Employee: Employee
+    BusinessAll: Business
   }
   type Mutation {
     loginBusiness(email: String!, password: String!): LoginAddBusinessResponse

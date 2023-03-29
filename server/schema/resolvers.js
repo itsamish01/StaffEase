@@ -5,6 +5,11 @@ import { Business } from "../models/Business.js";
 
 const resolvers = {
   Query: {
+    BusinessAll: async () => {
+      const businessAllData = await Business.find({});
+      console.log(businessAllData);
+      return businessAllData[0];
+    },
     Business: async (_, __, context) => {
       if (context.user) {
         const businessData = await Business.findOne({
