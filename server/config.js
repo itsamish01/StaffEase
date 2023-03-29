@@ -1,6 +1,16 @@
-import dotenv from "dotenv";
+import * as dotenv from "dotenv";
+/*
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+*/
 
-dotenv.config({ path: new URL("./.env", import.meta.url) });
+//dotenv.config({ path: new URL("./.env", import.meta.url) });
+
+// .env file should be in the parent directory
+// If it isn't check the current working directory
+dotenv.config({ path: "../.env" || "./.env" });
 
 export default {
   jwt: {

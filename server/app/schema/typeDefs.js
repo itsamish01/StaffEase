@@ -46,7 +46,7 @@ export default `
     maxCapacity: Int!
     employeeOnCount: Int!
     employees: [Employee]
-    customers:[Customer]
+    reviews: [Review]
   }
   type Employee {
     _id: ID!
@@ -54,7 +54,7 @@ export default `
     lastName: String!
     clockedin: Boolean
   }
-  type Customer {
+  type Review {
     _id:ID!
     firstName: String!
     lastName: String!
