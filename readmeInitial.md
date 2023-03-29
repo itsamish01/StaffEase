@@ -87,25 +87,25 @@ Make a good looking appealing application.
 CLEAN NEW START
 An app for a demo five restautants
 Business owner
-            Real time staffing workload by way off staff to volume ratio
+Real time staffing workload by way off staff to volume ratio
 Staff check in
-            occur with login full name Clockin button
-            Stores in DB, updates Active Employee count
+occur with login full name Clockin button
+Stores in DB, updates Active Employee count
 Purchases/ Store Busyness
-            Determined by Active employee validation
-            Has Button
+Determined by Active employee validation
+Has Button
 Method to determin workload
-            Employee Planned Schdule vs actual employee number with ratio to determine volume
-            (As a manager I expect 2 employees to service 50 poeple an hour)
+Employee Planned Schdule vs actual employee number with ratio to determine volume
+(As a manager I expect 2 employees to service 50 poeple an hour)
 Customers during timestamp
-            Each business One Shift, One Restaurant( populate with 5 replicas)
+Each business One Shift, One Restaurant( populate with 5 replicas)
 Customer Side
-            Reveals performance of restaurant (%of maximum i.e 50 per hour per 2 employees)
-            Maybe though visting, metrics openly shown
-            (stretch) Open Text Area, Customer input reviews, on button push sentiment analysis, AI
-            (stretch) Sees it through social media post
-            Chat Bot, not trained on
-            Dirty would be send email to manager to post on his account, at end of shift or mid shift or when performance hits metric???
+Reveals performance of restaurant (%of maximum i.e 50 per hour per 2 employees)
+Maybe though visting, metrics openly shown
+(stretch) Open Text Area, Customer input reviews, on button push sentiment analysis, AI
+(stretch) Sees it through social media post
+Chat Bot, not trained on
+Dirty would be send email to manager to post on his account, at end of shift or mid shift or when performance hits metric???
 Twillio Send grid???
 
 Stretch Category
@@ -140,6 +140,13 @@ Customer Comment
 -first,last, rating (stars, comment)
 
 Content Section
+-For business would be
+-customer comments
+-see business analytics
+-staff workload
+-capacitynumbers
+-for employee
+-clockin, clockout button
 
 Clicked
 
@@ -317,22 +324,22 @@ timestamp:true
 
 Business:
 business_id (unique identifier)
-  name
-  description
-  location
-  contact_details
-  current_customers
-  max_capacity (optional)
+name
+description
+location
+contact_details
+current_customers
+max_capacity (optional)
 Staff:
-  staff_id (unique identifier)
-  first_name
-  last_name
-  role
-  email
-  password (hashed)
-  business_id (foreign key, referencing Business)
-  clockedin
-  total_hours_worked (stretch)
+staff_id (unique identifier)
+first_name
+last_name
+role
+email
+password (hashed)
+business_id (foreign key, referencing Business)
+clockedin
+total_hours_worked (stretch)
 CustomerFeedback:
 feedback_id (unique identifier)
 business_id (foreign key, referencing Business)

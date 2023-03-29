@@ -1,45 +1,52 @@
-const express = require("express");
-const { ApolloServer } = require("apollo-server-express");
-const path = require("path");
-const { authMiddleware } = require("./utils/auth");
+import { ApolloServer } from "@apollo/server";
+import { expressMiddleware } from "@apollo/server/express4";
+import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
+import cors from "cors";
+import express from "express";
+import http from "http";
+import config from "./config.js";
+import { resolvers, typeDefs } from "./schema/index.js";
+import { decodeToken } from "./middleware.js";
 
-const { typeDefs, resolvers } = require("./schema");
-const db = require("./config/connection");
+const { port } = config;
 
-const PORT = process.env.PORT || 3001;
 const app = express();
+
+// Our httpServer handles incoming requests to our Express app.
+// Below, we tell Apollo Server to "drain" this httpServer,
+// enabling our servers to shut down gracefully.
+const httpServer = http.createServer(app);
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: authMiddleware,
+  plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
 
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+async function init() {
+  // Note you must call `server.start()` on the `ApolloServer`
+  // instance before passing the instance to `expressMiddleware`
+  await server.start();
 
-// Serve up static assets
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client/build")));
+  // Specify the path where we'd like to mount our server
+  app.use(
+    "/",
+    cors(),
+    express.json(),
+    decodeToken,
+    expressMiddleware(server, {
+      context({ req }) {
+        return {
+          user: req.user,
+        };
+      },
+    })
+  );
+
+  // Modified server startup
+  await new Promise((resolve) => httpServer.listen({ port }, resolve));
+
+  console.info(`🚀 Server ready at http://localhost:${port}`);
 }
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/"));
-});
-
-// Create a new instance of an Apollo server with the GraphQL schema
-const startApolloServer = async (typeDefs, resolvers) => {
-  await server.start();
-  server.applyMiddleware({ app });
-
-  db.once("open", () => {
-    app.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
-      console.log(
-        `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
-      );
-    });
-  });
-};
-
-// Call the async function to start the server
-startApolloServer(typeDefs, resolvers);
+export default init;
