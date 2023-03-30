@@ -3,7 +3,7 @@ import { Input } from "../components/form";
 
 export default function LoginRegister() {
   const [isRegistering, setIsRegistering] = useState(false);
-
+  const [isBusiness, setIsBusiness] = useState(false);
   return (
     <main>
       <h2 className="text-center">
@@ -38,6 +38,15 @@ export default function LoginRegister() {
           className="text-center text-sm text-gray-500 hover:text-gray-300"
         >
           {isRegistering ? "Already have an account?" : "Need to register?"}
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setIsBusiness((prev) => !prev);
+          }}
+          className="text-center text-sm text-gray-500 hover:text-gray-300"
+        >
+          {isRegistering ? "Are you an Employee?" : "Are you a buiness?"}
         </button>
       </form>
     </main>
