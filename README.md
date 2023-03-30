@@ -50,7 +50,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 > TODO: replaced Styled-components with Tailwind
 
-- Styled-components for CSS-in-JS styling
+- Tailwind CSS for utility-first styling
 - jsonwebtoken for authentication
 - apollo-server-express for GraphQL integration
 
