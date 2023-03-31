@@ -9,6 +9,11 @@ export default function PublicQueryList(prop) {
         {prop.business?.map((business) => (
           <li className="list-group-item" key={business._id}>
             {`${business.businessName} ${business.description} ${business.location} ${business.contact}`}
+            {business.customers?.map((value) => (
+              <li className="list-group-item" key={business._id}>
+                {`${value.rating} ${value.comment}`}
+              </li>
+            ))}
           </li>
         ))}
         {prop.note}
@@ -26,8 +31,3 @@ PublicQueryList.propTypes = {
     customer: PropTypes.arrayOf(PropTypes.string),
   }),
 };
-// {business.customer.map((value) => (
-//               <li className="list-group-item" key={business._id}>
-//                 {`${value.rating} ${value.comment}`}
-//               </li>
-//             ))}
