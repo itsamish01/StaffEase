@@ -46,7 +46,7 @@ export default function LoginRegister() {
           }}
           className="text-center text-sm text-gray-500 hover:text-gray-300"
         >
-          {isRegistering ? "Are you an Employee?" : "Are you a buiness?"}
+          {isBusiness ? "Are you an Employee?" : "Are you a buiness?"}
         </button>
       </form>
     </main>
