@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { Login } from "../components/form";
-import { EmployeeSignup } from "../components/form";
-import { BusinessSignup } from "../components/form";
+import { Login, EmployeeSignup, BusinessSignup } from "../components/form";
 
 export default function LoginRegister() {
   const [isRegistering, setIsRegistering] = useState(false);
@@ -15,7 +13,15 @@ export default function LoginRegister() {
         {isRegistering ? "Register a New Account" : "Login to Account"}
       </h2>
       <form className="flex flex-col items-center gap-y-2 px-4">
-        <Login />
+        {isRegistering ? (
+          isBusiness ? (
+            <BusinessSignup />
+          ) : (
+            <EmployeeSignup />
+          )
+        ) : (
+          <Login />
+        )}
         <button
           type="submit"
           className="button mt-4 bg-green-500 hover:bg-green-300"
