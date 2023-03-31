@@ -7,7 +7,6 @@ const resolvers = {
   Query: {
     BusinessAll: async () => {
       const businessAllData = await Business.find({});
-      console.log(businessAllData);
 
       return businessAllData;
     },
@@ -100,21 +99,16 @@ const resolvers = {
     },
     saveCustomer: async (
       _,
-      { firstName, lastName, rating, comment },
-      context
+      { businessName, firstName, lastName, rating, comment }
     ) => {
       console.log("helloCustomer");
-      if (context.user) {
-        const updatedBusiness = await Business.findByIdAndUpdate(
-          { _id: context.user.id },
-          { $push: { customers: { firstName, lastName, rating, comment } } },
-          { new: true }
-        );
+      const updatedBusiness = await Business.findOneAndUpdate(
+        { businessName },
+        { $push: { customers: { firstName, lastName, rating, comment } } },
+        { new: true }
+      );
 
-        return updatedBusiness;
-      }
-
-      throw new Error("You need to be logged in!");
+      return updatedBusiness;
     },
     clockinEmployee: async (_, { businessName }, context) => {
       console.log("helloEmployeeClock");
