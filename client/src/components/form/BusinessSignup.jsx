@@ -47,7 +47,7 @@ export default function BusinessSignup() {
         required
       />
       <Input
-        type="text"
+        type="number"
         label="maxCapacity"
         id="maxCapacity"
         placeholder="Enter the Maximum Capacity"
