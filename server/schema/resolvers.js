@@ -8,7 +8,8 @@ const resolvers = {
     BusinessAll: async () => {
       const businessAllData = await Business.find({});
       console.log(businessAllData);
-      return businessAllData[0];
+
+      return businessAllData;
     },
     Business: async (_, __, context) => {
       if (context.user) {

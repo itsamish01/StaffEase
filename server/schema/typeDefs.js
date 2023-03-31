@@ -2,9 +2,10 @@ export default `
   type Query {
     Business: Business
     Employee: Employee
-    BusinessAll: Business
+    BusinessAll: [Business]
   }
   type Mutation {
+  
     loginBusiness(email: String!, password: String!): LoginAddBusinessResponse
     addBusiness(
       businessName: String!,
@@ -20,7 +21,7 @@ export default `
     saveEmployee(firstName:String!, lastName:String!): Business
     clockinEmployee(businessName:String!):Business
     removeEmployee(employeeId: ID!): Business
-    saveCustomer(firstName:String!, lastName:String!, rating:Int!, comment: String!):Business
+    saveCustomer(businessName:String!, firstName:String!, lastName:String!, rating:Int!, comment: String!):Business
     loginEmployee(email: String!, password: String!): LoginAddEmployeeResponse
     addEmployee(
       firstName: String!
