@@ -14,9 +14,7 @@ export default `
       description: String!,
       location:String!,
       contact:String!,
-      currentCapacity:Int!,
       maxCapacity:Int!,
-      employeeOnCount:Int!
     ): LoginAddBusinessResponse
     saveEmployee(firstName:String!, lastName:String!): Business
     clockinEmployee(businessName:String!):Business
@@ -44,9 +42,9 @@ export default `
     description: String!
     location: String!
     contact: String!
-    currentCapacity: Int!
+    currentCapacity: Int
     maxCapacity: Int!
-    employeeOnCount: Int!
+    employeeOnCount: Int
     employees: [Employee]
     customers:[Customer]
   }
