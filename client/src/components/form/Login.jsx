@@ -6,9 +6,9 @@ export default function Login() {
     <>
       <Input
         type="text"
-        label="username"
-        id="username"
-        placeholder="Enter your username"
+        label="email"
+        id="email"
+        placeholder="Enter your email"
         required
       />
       <Input

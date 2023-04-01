@@ -23,3 +23,35 @@ export const ADD_BUSINESS = gql`
     }
   }
 `;
+
+export const ADD_EMPLOYEE = gql`
+  mutation Mutation(
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+  ) {
+    addEmployee(
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      password: $password
+    ) {
+      token
+    }
+  }
+`;
+export const LOGIN_BUSINESS = gql`
+  mutation LoginBusiness($email: String!, $password: String!) {
+    loginBusiness(email: $email, password: $password) {
+      token
+    }
+  }
+`;
+export const LOGIN_EMPLOYEE = gql`
+  mutation LoginEmployee($email: String!, $password: String!) {
+    loginEmployee(email: $email, password: $password) {
+      token
+    }
+  }
+`;

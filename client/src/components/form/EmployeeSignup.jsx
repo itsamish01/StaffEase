@@ -32,6 +32,7 @@ export default function EmployeeSignup() {
         placeholder="Enter your password"
         required
       />
+      
     </>
   );
 }
