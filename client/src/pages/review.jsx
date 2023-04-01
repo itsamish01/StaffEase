@@ -1,4 +1,4 @@
-export default function About() {
+export default function Review() {
   return (
     <main className="px-4 text-center">
       <h2>About</h2>

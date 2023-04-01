@@ -51,8 +51,6 @@ export default function LoginRegister() {
   const submitForm = async (event) => {
     event.preventDefault();
     if (!isRegistering && !isBusiness) {
-      console.log(event.target.email.value);
-      console.log(event.target.password.value);
       const employeeFormData = {
         email: event.target.email.value,
         password: event.target.password.value,
@@ -68,8 +66,6 @@ export default function LoginRegister() {
         console.error(err);
       }
     } else if (!isRegistering && isBusiness) {
-      console.log(event.target.email.value);
-      console.log(event.target.password.value);
       const businessFormData = {
         email: event.target.email.value,
         password: event.target.password.value,
@@ -80,7 +76,7 @@ export default function LoginRegister() {
           variables: { ...businessFormData },
         });
         console.log(businessFormData);
-        location.replace("/");
+        location.replace("/businesspage");
       } catch (err) {
         console.error(err);
       }

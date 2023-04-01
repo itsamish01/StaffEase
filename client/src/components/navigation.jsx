@@ -11,7 +11,7 @@ export default function Navigation() {
           <Link to="/login"> Login/Signup</Link>
         </li>
         <li>
-          <Link to="/about">📖 About</Link>
+          <Link to="/review">Submit Review</Link>
         </li>
       </ul>
     </nav>
