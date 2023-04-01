@@ -62,3 +62,10 @@ export const SAVE_EMPLOYEE = gql`
     }
   }
 `;
+export const REMOVE_EMPLOYEE = gql`
+  mutation RemoveEmployee($employeeId: ID!) {
+    removeEmployee(employeeId: $employeeId) {
+      _id
+    }
+  }
+`;

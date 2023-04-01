@@ -41,7 +41,6 @@ const resolvers = {
       return { token };
     },
     loginBusiness: async (_, { email, password }) => {
-      console.log("hello");
       const business = await Business.findOne({ email });
 
       if (!business) {
@@ -57,7 +56,6 @@ const resolvers = {
       return { token };
     },
     loginEmployee: async (_, { email, password }) => {
-      console.log("hello");
       const employee = await Employee.findOne({ email });
 
       if (!employee) {
@@ -68,8 +66,6 @@ const resolvers = {
       return { token, employee };
     },
     saveEmployee: async (_, { firstName, lastName }, context) => {
-      console.log("helloEmployee");
-
       if (context.user) {
         const employeeData = await Employee.findOne({ firstName, lastName });
         const updatedBusiness = await Business.findByIdAndUpdate(
@@ -85,13 +81,11 @@ const resolvers = {
     },
     removeEmployee: async (_, { employeeId }, context) => {
       if (context.user) {
-        //console.log(employeeId);
-        const updatedBusiness = await Business.updateOne(
+        const updatedBusiness = await Business.findOneAndUpdate(
           { _id: context.user.id },
           { $pull: { employees: { _id: employeeId } } }
         );
-        // console.log(employeeId);
-        //console.log(context.user.id);
+
         return updatedBusiness;
       }
 
@@ -111,7 +105,6 @@ const resolvers = {
       return updatedBusiness;
     },
     clockinEmployee: async (_, { businessName }, context) => {
-      console.log("helloEmployeeClock");
       if (context.user) {
         const employeePreB = await Employee.findById({ _id: context.user.id });
         let clockboolean = employeePreB.clockedin;

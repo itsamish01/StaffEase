@@ -8,14 +8,14 @@ export default function saveEmployee() {
         type="text"
         label="firstName"
         id="firstName"
-        placeholder="Enter your First Name"
+        placeholder="Enter the First Name"
         required
       />
       <Input
         type="text"
         label="lastName"
         id="lastName"
-        placeholder="Enter your Last Name"
+        placeholder="Enter the Last Name"
         required
       />
     </>

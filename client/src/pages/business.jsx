@@ -1,11 +1,18 @@
 import PropTypes from "prop-types";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ME } from "../schema/queries";
-import { SaveEmployee } from "../components/form";
-import { SAVE_EMPLOYEE } from "../schema/mutations";
+import { SaveEmployee, RemoveEmployee } from "../components/form";
+import { SAVE_EMPLOYEE, REMOVE_EMPLOYEE } from "../schema/mutations";
+
 export default function BusinessPage() {
   const { loading, data } = useQuery(GET_ME);
   const [saveEmployee, { error }] = useMutation(SAVE_EMPLOYEE, {
+    refetchQueries: [
+      { query: GET_ME }, // DocumentNode object parsed with gql
+      "GetBusiness", // Query name
+    ],
+  });
+  const [removeEmployee, { error1 }] = useMutation(REMOVE_EMPLOYEE, {
     refetchQueries: [
       { query: GET_ME }, // DocumentNode object parsed with gql
       "GetBusiness", // Query name
@@ -29,6 +36,20 @@ export default function BusinessPage() {
     console.log(event.target.firstName.value);
     console.log(event.target.lastName.value);
   };
+  const submitRemoveEmployee = async (event) => {
+    event.preventDefault();
+    const employeeFormData = {
+      employeeId: event.target.id.value,
+    };
+
+    try {
+      const { data } = await removeEmployee({
+        variables: { ...employeeFormData },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <main className=" flex flex-col items-center gap-y-2 px-4 text-center">
       <h2>Business</h2>
@@ -44,9 +65,12 @@ export default function BusinessPage() {
         Employees:
         {data?.Business.employees.map((value) => (
           <li className="list-group-item" key={data.Business._id}>
-            {`${value.firstName} ${value.lastName} ${value.clockedin}`}
+            {`${value?.firstName} ${value?.lastName} ${value?.clockedin} ${value?._id}`}
           </li>
         ))}
+        Capacity Data:
+        <li>MaxCap: {data?.Business.maxCapacity}</li>
+        <li>CurrentCap: {data?.Business.currentCapacity}</li>
       </ul>
       <section className="flex flex-col items-center">
         <button
@@ -72,6 +96,18 @@ export default function BusinessPage() {
           className="button mt-4 bg-green-500 hover:bg-green-300"
         >
           Save Employee
+        </button>
+      </form>
+      <form
+        onSubmit={submitRemoveEmployee}
+        className="flex flex-col items-center gap-y-2 px-4"
+      >
+        <RemoveEmployee />
+        <button
+          type="submit"
+          className="button mt-4 bg-green-500 hover:bg-green-300"
+        >
+          Remove Employee
         </button>
       </form>
     </main>
