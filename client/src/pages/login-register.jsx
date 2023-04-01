@@ -61,7 +61,7 @@ export default function LoginRegister() {
           variables: { ...employeeFormData },
         });
         console.log(employeeFormData);
-        location.replace("/");
+        location.replace("/employeepage");
       } catch (err) {
         console.error(err);
       }
@@ -93,7 +93,7 @@ export default function LoginRegister() {
           variables: { ...employeeFormData },
         });
         console.log(employeeFormData);
-        location.replace("/");
+        location.replace("/employeepage");
       } catch (err) {
         console.error(err);
       }
@@ -113,7 +113,7 @@ export default function LoginRegister() {
           variables: { ...businessFormData },
         });
         console.log(businessFormData);
-        location.replace("/");
+        location.replace("/businesspage");
       } catch (err) {
         console.error(err);
       }

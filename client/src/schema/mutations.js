@@ -55,3 +55,10 @@ export const LOGIN_EMPLOYEE = gql`
     }
   }
 `;
+export const SAVE_EMPLOYEE = gql`
+  mutation SaveEmployee($firstName: String!, $lastName: String!) {
+    saveEmployee(firstName: $firstName, lastName: $lastName) {
+      _id
+    }
+  }
+`;

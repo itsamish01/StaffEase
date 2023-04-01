@@ -15,3 +15,25 @@ export const GET_RESTAURANTS = gql`
     }
   }
 `;
+export const GET_ME = gql`
+  query Business {
+    Business {
+      businessName
+      currentCapacity
+      maxCapacity
+      employeeOnCount
+      employees {
+        firstName
+        lastName
+        clockedin
+        _id
+      }
+      customers {
+        firstName
+        lastName
+        rating
+        comment
+      }
+    }
+  }
+`;
