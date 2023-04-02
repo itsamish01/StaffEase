@@ -106,6 +106,17 @@ const resolvers = {
 
       return updatedBusiness;
     },
+    updateCapacity: async (_, { currentCapacity }, context) => {
+      if (context.user) {
+        console.log("heys");
+        const updatedCapacity = await Business.findByIdAndUpdate(
+          { _id: context.user.id },
+          { $set: { currentCapacity: currentCapacity } }
+        );
+        return updatedCapacity;
+      }
+    },
+
     clockinEmployee: async (_, { businessName }, context) => {
       if (context.user) {
         const employeePreB = await Employee.findById({ _id: context.user.id });

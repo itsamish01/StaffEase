@@ -20,6 +20,7 @@ export default `
     clockinEmployee(businessName:String!):Business
     removeEmployee(employeeId: ID!): Business
     saveCustomer(businessName:String!, firstName:String!, lastName:String!, rating:Int!, comment: String!):Business
+    updateCapacity(currentCapacity:Int!):Business
     loginEmployee(email: String!, password: String!): LoginAddEmployeeResponse
     addEmployee(
       firstName: String!

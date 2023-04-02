@@ -88,3 +88,10 @@ export const SAVE_REVIEW = gql`
     }
   }
 `;
+export const MOD_CAPACITY = gql`
+  mutation UpdateCapacity($currentCapacity: Int!) {
+    updateCapacity(currentCapacity: $currentCapacity) {
+      _id
+    }
+  }
+`;
