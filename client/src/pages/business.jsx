@@ -91,7 +91,7 @@ export default function BusinessPage() {
         Capacity Data:
         <li>MaxCap: {data?.Business.maxCapacity}</li>
         <li>CurrentCap: {data?.Business.currentCapacity}</li>
-        {/* <li>Employees On: {employeeOnCount}</li> */}
+        <li>Employees On: {data?.Business.employeeOnCount}</li>
       </ul>
       <section className="flex flex-col items-center">
         <button
