@@ -33,8 +33,6 @@ export default function BusinessPage() {
     } catch (err) {
       console.error(err);
     }
-    console.log(event.target.firstName.value);
-    console.log(event.target.lastName.value);
   };
   const submitRemoveEmployee = async (event) => {
     event.preventDefault();

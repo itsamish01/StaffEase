@@ -69,3 +69,22 @@ export const REMOVE_EMPLOYEE = gql`
     }
   }
 `;
+export const SAVE_REVIEW = gql`
+  mutation SaveCustomer(
+    $businessName: String!
+    $firstName: String!
+    $lastName: String!
+    $rating: Int!
+    $comment: String!
+  ) {
+    saveCustomer(
+      businessName: $businessName
+      firstName: $firstName
+      lastName: $lastName
+      rating: $rating
+      comment: $comment
+    ) {
+      _id
+    }
+  }
+`;
