@@ -95,3 +95,10 @@ export const MOD_CAPACITY = gql`
     }
   }
 `;
+export const CLOCKIN = gql`
+  mutation Mutation($businessName: String!) {
+    clockinEmployee(businessName: $businessName) {
+      _id
+    }
+  }
+`;

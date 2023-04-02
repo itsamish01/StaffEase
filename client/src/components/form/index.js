@@ -6,4 +6,5 @@ export { default as EmployeeSignup } from "./EmployeeSignup";
 export { default as BusinessSignup } from "./BusinessSignup";
 export { default as SaveEmployee } from "./SaveEmployee";
 export { default as RemoveEmployee } from "./RemoveEmployee";
-export { default as SubmitReview} from "./SubmitReview"
+export { default as SubmitReview } from "./SubmitReview";
+export { default as ClockinEmployee } from "./ClockIn";
