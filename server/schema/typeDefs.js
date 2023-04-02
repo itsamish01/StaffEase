@@ -27,6 +27,7 @@ export default `
       email: String!
       password: String!
     ): LoginAddEmployeeResponse
+
   }
   type LoginAddBusinessResponse {
     token: ID!

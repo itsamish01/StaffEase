@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ME } from "../schema/queries";
 import { SaveEmployee, RemoveEmployee } from "../components/form";
@@ -48,6 +49,27 @@ export default function BusinessPage() {
       console.error(err);
     }
   };
+
+  const employeeClockedin = (data) => {
+    console.log(data?.Business.employees);
+    const empArray = data?.Business.employees;
+    const empCount = empArray.map((element) => {
+      if (element.clockedin) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    const calculateSum = (arr) => {
+      return arr.reduce((total, current) => {
+        return total + current;
+      }, 0);
+    };
+    calculateSum(empCount);
+  };
+  if (data) {
+    employeeClockedin(data);
+  }
   return (
     <main className=" flex flex-col items-center gap-y-2 px-4 text-center">
       <h2>Business</h2>
@@ -69,6 +91,7 @@ export default function BusinessPage() {
         Capacity Data:
         <li>MaxCap: {data?.Business.maxCapacity}</li>
         <li>CurrentCap: {data?.Business.currentCapacity}</li>
+        {/* <li>Employees On: {employeeOnCount}</li> */}
       </ul>
       <section className="flex flex-col items-center">
         <button

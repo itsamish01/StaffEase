@@ -16,6 +16,8 @@ const resolvers = {
           _id: context.user.id,
         }).select("-__v -password");
 
+        businessData.employeeOnCount = businessData.empCount;
+
         return businessData;
       }
 

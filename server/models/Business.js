@@ -44,6 +44,10 @@ const BusinessSchema = new Schema(
       type: Number,
       required: true,
     },
+    employeeOnCount: {
+      type: Number,
+      required: false,
+    },
     employees: [employeeSchema],
     customers: [customerSchema],
   },
@@ -54,6 +58,24 @@ const BusinessSchema = new Schema(
     },
   }
 );
+
+BusinessSchema.virtual("empCount").get(function () {
+  const hey = this.employees.map((element) => {
+    if (element.clockedin) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+  const calculateSum = (arr) => {
+    return arr.reduce((total, current) => {
+      return total + current;
+    }, 0);
+  };
+  let empCount = calculateSum(hey);
+  return empCount;
+});
+
 BusinessSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, config.saltRounds);
