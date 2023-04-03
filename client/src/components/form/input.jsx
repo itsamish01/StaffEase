@@ -13,6 +13,7 @@ export default function Input({ label, id, type, placeholder, required }) {
         placeholder={placeholder || label}
         required={required}
         name={camelCase(id)}
+        className="text-black"
       />
     </div>
   );
