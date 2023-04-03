@@ -18,7 +18,7 @@ export default function Review() {
         variables: { ...reviewFormData },
       });
       console.log(reviewFormData);
-      
+      location.replace("/");
     } catch (err) {
       console.error(err);
     }

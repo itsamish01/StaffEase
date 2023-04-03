@@ -15,6 +15,7 @@ export default function EmployeePage() {
         variables: { ...employeeFormData },
       });
       console.log(employeeFormData);
+      location.replace("/");
     } catch (err) {
       console.error(err);
     }

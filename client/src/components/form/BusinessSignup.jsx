@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Input from "./input";
+import Stripe from "./Stripe";
 
 export default function BusinessSignup() {
   return (
@@ -53,6 +54,7 @@ export default function BusinessSignup() {
         placeholder="Enter the Maximum Capacity"
         required
       />
+      <Stripe />
     </>
   );
 }

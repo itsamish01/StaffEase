@@ -17,6 +17,8 @@
   "license": "MIT",
   "dependencies": {
     "@apollo/client": "^3.7.10",
+    "@stripe/react-stripe-js": "^2.1.0",
+    "@stripe/stripe-js": "^1.52.0",
     "dotenv": "^16.0.3",
     "graphql": "^16.6.0",
     "react": "^18.2.0",
@@ -50,5 +52,6 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "proxy": "<http://localhost:4242>"
 }
