@@ -59,7 +59,9 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 - Styled-components for CSS-in-JS styling
 - jsonwebtoken for authentication
-- apollo-server-express for GraphQL integration
+- apollo-server-express for GraphQL integration with Express
+- Express for server-side framework
+- GraphQL for API query language and runtime
 
 ## Developed by
 - Amish Sharma: https://github.com/itsamish01
