@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../components/footer";
-import Header from "../components/header";
+
 import Navigation from "../components/navigation";
 
 export default function Layout() {
@@ -10,7 +10,6 @@ export default function Layout() {
     <>
       {/* TODO: Pass the user info directly to Navigation as a prop. All children Outlet components can access it via `useOutletContext` 👇🏾 */}
       <Navigation />
-      <Header />
 
       {/* TODO: Add a value using Apollo Client's useQuery hook ☝️ 
         - use {} for INTERPOLATION

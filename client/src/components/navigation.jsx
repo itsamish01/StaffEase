@@ -5,7 +5,7 @@ export default function Navigation() {
     <nav className="bg-gray-700">
       <ul className="flex justify-center gap-x-8 p-4 text-lg">
         <li>
-          <Link to="/">🏠 Home</Link>
+          <Link to="/"> Home</Link>
         </li>
         <li>
           <Link to="/login"> Login/Signup</Link>

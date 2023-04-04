@@ -1,7 +1,11 @@
-export default function Footer() {
+import React from 'react';
+
+function Footer() {
   return (
-    <footer className="mt-4 text-center">
-      <p>© {new Date().getFullYear()} - All Rights Reserved</p>
+    <footer>
+      <p>&copy; 2023 StaffEase</p>
     </footer>
   );
 }
+
+export default Footer;
