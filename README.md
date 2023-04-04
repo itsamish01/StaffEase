@@ -1,5 +1,4 @@
-# StaffEaseHot Beverage on Apple iOS 16.4
-
+# StaffEase☕️
 StaffEase is a comprehensive staffing management solution for small businesses, streamlining operations with real-time staff tracking, customer wait times, and an affordable POS system to enhance customer satisfaction and drive success.
 
 ## Deployed Link: https://main--precious-raindrop-8940e4.netlify.app/
@@ -8,13 +7,13 @@ StaffEase is a comprehensive staffing management solution for small businesses, 
 
 ##Screenshot ![Screenshot 2023-04-04 at 5 50 46 PM](https://user-images.githubusercontent.com/114682284/229939391-3316c1c7-cd7c-446c-a8bc-342545401214.png)
 
-## User Story 
+## User Story 📚
 As a customer in a world with staffing shortages, I want to know if a business is adequately staffed and be informed about wait times. StaffEase helps businesses manage their staffing levels efficiently, ensuring a smoother customer experience. By using StaffEase, I can see if a business is short-staffed or well-staffed, and make informed decisions about where to spend my time and money, ultimately enjoying better service and reduced wait times.
 
 
 
 
-## Features
+## Features✨
 
 - Real-time staff tracking and clock-in/clock-out functionality
 - Customer wait time monitoring
@@ -25,7 +24,7 @@ As a customer in a world with staffing shortages, I want to know if a business i
 - Getting Started
 - These instructions will help you set up and run the StaffEase project on your local machine for development and testing purposes.
 
-## Prerequisites
+## Prerequisites🔎
 
 Ensure you have the following installed on your system:
 
@@ -42,7 +41,7 @@ Ensure you have the following installed on your system:
 
 To deploy StaffEase to a production environment, follow the instructions provided by your preferred hosting platform, such as Heroku or AWS.
 
-## Built With
+## Built With🛠️
 
 - React - Front-end library
 - Node.js - Back-end runtime environment
@@ -55,11 +54,11 @@ To deploy StaffEase to a production environment, follow the instructions provide
 
 Please read CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests to the project.
 
-## License
+## License📝
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
-## Acknowledgments
+## Acknowledgments🏆
 
 - Styled-components for CSS-in-JS styling
 - jsonwebtoken for authentication
@@ -67,7 +66,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 - Express for server-side framework
 - GraphQL for API query language and runtime
 
-## Developed by
+## Developed by 🏋️🏋️🏋️🏋️
 - Amish Sharma: https://github.com/itsamish01
 - Jason Charney: https://github.com/jrcharney
 - Joshua Norris: https://github.com/janorris65
