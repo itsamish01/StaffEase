@@ -37,3 +37,10 @@ export const GET_ME = gql`
     }
   }
 `;
+export const API = gql`
+  query API {
+    API {
+      session
+    }
+  }
+`;

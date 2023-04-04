@@ -3,6 +3,7 @@ export default `
     Business: Business
     Employee: Employee
     BusinessAll: [Business]
+    API: Checkout
   }
   type Mutation {
   
@@ -62,5 +63,8 @@ export default `
     lastName: String!
     rating: Int!
     comment: String!
+  }
+  type Checkout {
+    session: ID
   }
 `;

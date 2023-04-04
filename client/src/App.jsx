@@ -7,6 +7,7 @@ import {
   BusinessPage,
   EmployeePage,
 } from "./pages";
+
 const router = createBrowserRouter([
   {
     element: <Layout />,
