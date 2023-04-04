@@ -1,7 +1,7 @@
-import { Schema, model } from "mongoose";
 import bcrypt from "bcrypt";
-import config from "../config.js";
-import { encodeToken, handleError } from "../utils.js";
+import { Schema, model } from "mongoose";
+import config from "../../config.js";
+import { encodeToken, handleError } from "../../utils.js";
 // import userSchema from './users';
 
 const employeeSchema = new Schema(

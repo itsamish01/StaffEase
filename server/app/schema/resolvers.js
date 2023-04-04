@@ -1,6 +1,6 @@
 // Need multiple models
-import { Employee } from "../models/Employee.js";
 import { Business } from "../models/Business.js";
+import { Employee } from "../models/Employee.js";
 // import { Customer } from "../models/Customer.js";
 
 const resolvers = {
