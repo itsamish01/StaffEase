@@ -35,11 +35,30 @@ Ensure you have the following installed on your system:
 - Express (version 4.18.2 or higher)
 - GraphQL (version 16.6.0 or higher)
 
-## Deployment
+## Deployment🤓
 
 > TODO: Write some better installation instructions
 
-To deploy StaffEase to a production environment, follow the instructions provided by your preferred hosting platform, such as Heroku or AWS.
+1. Clone the repository: Clone the repository to your local machine by running the following command in your terminal:
+
+git clone https://github.com/itsamish01/StaffEase
+
+2. Install dependencies: Navigate to the project root directory and run the following command to install the required dependencies:
+
+- npm install
+
+3. Set up environment variables: Create a .env file in the project root directory, and add any necessary environment variables required by your application, such as database credentials, API keys, or other sensitive information. Be sure to keep the .env file out of version control by adding it to your .gitignore file.
+
+4. Build the application: Run the following command in the project root directory to build the application:
+- npm run build
+
+5. Deploy the application: Choose your preferred hosting platform, such as Heroku or AWS, and follow their specific instructions to deploy your application. This process may include creating an account, setting up a new application, connecting your repository, and configuring any necessary environment variables.
+
+6. Set up the database: If your application requires a database, be sure to set up a new database instance on your chosen hosting platform. This may involve creating a new MongoDB Atlas cluster, for example, and configuring the connection string in your application's environment variables.
+
+7. Start the application: Once the deployment process is complete, start your application on the hosting platform by running the appropriate command or following their specific instructions.
+
+8. Verify the deployment: Visit your application's URL to ensure that it is running correctly and that all features are working as expected.
 
 ## Built With🛠️
 
