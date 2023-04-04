@@ -37,8 +37,6 @@ Ensure you have the following installed on your system:
 
 ## Deployment🤓
 
-> TODO: Write some better installation instructions
-
 1. Clone the repository: Clone the repository to your local machine by running the following command in your terminal:
 
 - git clone https://github.com/itsamish01/StaffEase
