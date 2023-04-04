@@ -37,7 +37,7 @@ export default function BusinessPage() {
     };
 
     try {
-      const { data } = await saveEmployee({
+       await saveEmployee({
         variables: { ...employeeFormData },
       });
       console.log(employeeFormData);
@@ -52,7 +52,7 @@ export default function BusinessPage() {
     };
 
     try {
-      const { data } = await removeEmployee({
+     await removeEmployee({
         variables: { ...employeeFormData },
       });
     } catch (err) {
@@ -66,7 +66,7 @@ export default function BusinessPage() {
       currentCapacity: data?.Business.currentCapacity + 1,
     };
     try {
-      const { data } = await modCapacity({ variables: { ...addCapacityData } });
+       await modCapacity({ variables: { ...addCapacityData } });
     } catch (err) {
       console.error(err);
     }
@@ -77,7 +77,7 @@ export default function BusinessPage() {
       currentCapacity: data?.Business.currentCapacity - 1,
     };
     try {
-      const { data } = await modCapacity({ variables: { ...addCapacityData } });
+      await modCapacity({ variables: { ...addCapacityData } });
     } catch (err) {
       console.error(err);
     }

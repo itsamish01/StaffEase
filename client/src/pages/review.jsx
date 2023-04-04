@@ -14,7 +14,7 @@ export default function Review() {
     };
 
     try {
-      const { data } = await saveReview({
+       await saveReview({
         variables: { ...reviewFormData },
       });
       console.log(reviewFormData);

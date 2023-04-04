@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { GET_RESTAURANTS } from "../schema/queries";
 import { PublicQueryList } from "../components/form";
 export default function PublicQuery() {
-  const { loading, data } = useQuery(GET_RESTAURANTS);
+  const { data } = useQuery(GET_RESTAURANTS);
   const [useData, setUseData] = useState();
 
   const searchQuery = (event) => {

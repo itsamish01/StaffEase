@@ -57,7 +57,7 @@ export default function LoginRegister() {
       };
 
       try {
-        const { data } = await loginEmployee({
+         await loginEmployee({
           variables: { ...employeeFormData },
         });
         console.log(employeeFormData);
@@ -72,7 +72,7 @@ export default function LoginRegister() {
       };
 
       try {
-        const { data } = await loginBusiness({
+         await loginBusiness({
           variables: { ...businessFormData },
         });
         console.log(businessFormData);
@@ -89,7 +89,7 @@ export default function LoginRegister() {
       };
 
       try {
-        const { data } = await signupEmployee({
+         await signupEmployee({
           variables: { ...employeeFormData },
         });
         console.log(employeeFormData);
@@ -109,7 +109,7 @@ export default function LoginRegister() {
       };
 
       try {
-        const { data } = await signupBusiness({
+         await signupBusiness({
           variables: { ...businessFormData },
         });
         console.log(businessFormData);
