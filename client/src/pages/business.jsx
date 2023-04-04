@@ -111,14 +111,14 @@ export default function BusinessPage() {
           type="submit"
           className="button mt-4 w-48 bg-green-500 hover:bg-green-300"
         >
-          New/Add Customer
+          Increase Occupancy
         </button>
         <button
           onClick={subtractCustomer}
           type="submit"
           className="button mt-4 w-48 bg-green-500 hover:bg-green-300"
         >
-          Complete/Subtract Customer
+          Decrease Occupancy
         </button>
       </section>
       <form
