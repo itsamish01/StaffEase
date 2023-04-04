@@ -5,7 +5,7 @@ StaffEase is a comprehensive staffing management solution for small businesses, 
 
 ## Back-End Deployment: https://staffease.herokuapp.com/
 
-##Screenshot ![Screenshot 2023-04-04 at 5 50 46 PM](https://user-images.githubusercontent.com/114682284/229939391-3316c1c7-cd7c-446c-a8bc-342545401214.png)
+## Screenshot ![Screenshot 2023-04-04 at 5 50 46 PM](https://user-images.githubusercontent.com/114682284/229939391-3316c1c7-cd7c-446c-a8bc-342545401214.png)
 
 ## User Story 📚
 As a customer in a world with staffing shortages, I want to know if a business is adequately staffed and be informed about wait times. StaffEase helps businesses manage their staffing levels efficiently, ensuring a smoother customer experience. By using StaffEase, I can see if a business is short-staffed or well-staffed, and make informed decisions about where to spend my time and money, ultimately enjoying better service and reduced wait times.
