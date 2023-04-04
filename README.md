@@ -41,7 +41,7 @@ Ensure you have the following installed on your system:
 
 1. Clone the repository: Clone the repository to your local machine by running the following command in your terminal:
 
-git clone https://github.com/itsamish01/StaffEase
+- git clone https://github.com/itsamish01/StaffEase
 
 2. Install dependencies: Navigate to the project root directory and run the following command to install the required dependencies:
 
