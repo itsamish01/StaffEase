@@ -1,4 +1,4 @@
-export { default as Input } from "./Input";
+export { default as Input } from "./input";
 export { default as Select } from "./Select";
 export { default as PublicQueryList } from "./publicqueryresults";
 export { default as Login } from "./Login";
