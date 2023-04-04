@@ -2,7 +2,7 @@ import { SubmitReview } from "../components/form";
 import { useMutation } from "@apollo/client";
 import { SAVE_REVIEW } from "../schema/mutations";
 export default function Review() {
-  const [saveReview, { client: registerClient }] = useMutation(SAVE_REVIEW);
+  const [saveReview] = useMutation(SAVE_REVIEW);
   const submitReview = async (event) => {
     event.preventDefault();
     const reviewFormData = {
@@ -14,7 +14,7 @@ export default function Review() {
     };
 
     try {
-       await saveReview({
+      await saveReview({
         variables: { ...reviewFormData },
       });
       console.log(reviewFormData);
