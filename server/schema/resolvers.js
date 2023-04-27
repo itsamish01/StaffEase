@@ -3,31 +3,40 @@ import { Employee } from "../models/Employee.js";
 import { Business } from "../models/Business.js";
 // import { Customer } from "../models/Customer.js";
 import Stripe from "stripe";
+import { request } from "express";
 const stripe = new Stripe(
   "sk_test_51Msd5EIxLdcd64gLzZtsExg1n5m6TrOy1G6uAftpGJ4922N78j7gb9pzIcHoimTlbDJvCVDOmHUPc6jV4lsycRQI00CpMgY3By"
 );
 
 const YOUR_DOMAIN = "http://localhost:5173";
 
-//app.listen(4242, () => console.log("Running on port 4242"));
 const resolvers = {
   Query: {
-    API: async () => {
-      console.log("hello");
-      const session = await stripe.checkout.sessions.create({
-        line_items: [
-          {
-            // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-            price: "price_1Msd5FIxLdcd64gLCci8E4gb",
-            quantity: 1,
+    API: async (_, __, context) => {
+      console.log("helloResolver");
+      if (context.user) {
+        const business = await stripe.customers.create({
+          metadata: {
+            businessID: context.user.id,
           },
-        ],
-        mode: "payment",
-        success_url: `${YOUR_DOMAIN}?success=true`,
-        cancel_url: `${YOUR_DOMAIN}?canceled=true`,
-      });
-      console.log(session);
-      return { session: session.url };
+        });
+        const session = await stripe.checkout.sessions.create({
+          line_items: [
+            {
+              // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+              price: "price_1Msd5FIxLdcd64gLCci8E4gb",
+              quantity: 1,
+            },
+          ],
+          customer: business.id,
+          mode: "payment",
+          success_url: `${YOUR_DOMAIN}/businesspage`,
+          cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+        });
+        console.log(session);
+
+        return { session: session.url };
+      }
     },
     BusinessAll: async () => {
       const businessAllData = await Business.find({});

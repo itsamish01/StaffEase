@@ -34,6 +34,7 @@ export const GET_ME = gql`
         rating
         comment
       }
+      paid
     }
   }
 `;

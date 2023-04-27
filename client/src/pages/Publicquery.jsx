@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_RESTAURANTS } from "../schema/queries";
-import { PublicQueryList, Stripe } from "../components/form";
+import { PublicQueryList } from "../components/form";
 export default function PublicQuery() {
   const { loading, data } = useQuery(GET_RESTAURANTS);
   const [useData, setUseData] = useState();
@@ -27,7 +27,6 @@ export default function PublicQuery() {
         </button>
         <PublicQueryList business={useData} note={useHelp} />
       </form>
-      <Stripe />
     </main>
   );
 }

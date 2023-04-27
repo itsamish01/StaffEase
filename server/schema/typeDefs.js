@@ -50,6 +50,7 @@ export default `
     employeeOnCount: Int
     employees: [Employee]
     customers:[Customer]
+    paid: Boolean
   }
   type Employee {
     _id: ID!

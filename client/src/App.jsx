@@ -6,6 +6,7 @@ import {
   PublicQuery,
   BusinessPage,
   EmployeePage,
+  BusinessCheckOut,
 } from "./pages";
 
 const router = createBrowserRouter([
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       { path: "/review", element: <Review /> },
       { path: "/businesspage", element: <BusinessPage /> },
       { path: "/employeepage", element: <EmployeePage /> },
+      { path: "/businesscheckout", element: <BusinessCheckOut /> },
     ],
   },
 ]);

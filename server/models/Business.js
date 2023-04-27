@@ -48,6 +48,11 @@ const BusinessSchema = new Schema(
       type: Number,
       required: false,
     },
+    paid: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
     employees: [employeeSchema],
     customers: [customerSchema],
   },

@@ -8,7 +8,7 @@ export function ProductDisplay() {
     getCheckout();
   }
   if (data?.API.session) {
-    console.log(data?.API);
+    // console.log(data?.API);
     window.location.assign(`${data?.API.session}`);
   }
   return (

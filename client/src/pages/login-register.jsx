@@ -48,6 +48,7 @@ export default function LoginRegister() {
       },
     }
   );
+
   const submitForm = async (event) => {
     event.preventDefault();
     if (!isRegistering && !isBusiness) {
@@ -113,7 +114,7 @@ export default function LoginRegister() {
           variables: { ...businessFormData },
         });
         console.log(businessFormData);
-        location.replace("/businesspage");
+        location.replace("/businesscheckout");
       } catch (err) {
         console.error(err);
       }
