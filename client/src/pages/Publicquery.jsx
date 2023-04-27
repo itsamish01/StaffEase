@@ -4,18 +4,16 @@ import { useQuery } from "@apollo/client";
 import { GET_RESTAURANTS } from "../schema/queries";
 import { PublicQueryList } from "../components/form";
 export default function PublicQuery() {
-  const { loading, data } = useQuery(GET_RESTAURANTS);
+  const { data } = useQuery(GET_RESTAURANTS);
   const [useData, setUseData] = useState();
-  const [useHelp, setUseHelp] = useState();
 
   const searchQuery = (event) => {
     event.preventDefault();
     console.log(data.BusinessAll);
     setUseData(data.BusinessAll);
-    setUseHelp("helllo");
   };
   return (
-    <main>
+    <main className="text-center">
       <h2 className="text-center">Search for Intelligent Restaurants</h2>
       <form className="flex flex-col items-center gap-y-2 px-4">
         <button
@@ -25,7 +23,7 @@ export default function PublicQuery() {
         >
           Search
         </button>
-        <PublicQueryList business={useData} note={useHelp} />
+        <PublicQueryList business={useData} />
       </form>
     </main>
   );
