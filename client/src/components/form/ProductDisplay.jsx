@@ -12,16 +12,20 @@ export function ProductDisplay() {
     window.location.assign(`${data?.API.session}`);
   }
   return (
-    <section>
-      <div className="product">
-        <img src="" alt="The cover of Stubborn Attachments" />
+    <section className="text-center">
+      <div className="text-center">
         <div className="description">
-          <h3>Stubborn Attachments</h3>
-          <h5>$20.00</h5>
+          <h3>Business Subscription</h3>
+          <h5>$10.00</h5>
         </div>
       </div>
 
-      <button onClick={submitCheckout}>Checkout</button>
+      <button
+        className="button mt-4 bg-green-500 hover:bg-green-300"
+        onClick={submitCheckout}
+      >
+        Checkout
+      </button>
     </section>
   );
 }
