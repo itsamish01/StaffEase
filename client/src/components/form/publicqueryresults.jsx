@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 export default function PublicQueryList(prop) {
+  const [isColor, setIsColor] = useState();
   return (
     <div className="container">
       <h1>Business:</h1>
@@ -24,7 +26,9 @@ export default function PublicQueryList(prop) {
             <h3>Reviews:</h3>
             {business.customers?.map((value) => (
               <li
-                className="list-group-item w-64 items-center rounded-md bg-slate-300 p-2 text-center text-white"
+                className={`list-group-item w-64 items-center rounded-md ${
+                  value.rating > 5 ? "bg-green-300" : "bg-red-200"
+                } bg p-2 text-center text-white`}
                 key={business._id}
               >
                 {`${value.rating} ${value.comment}`}

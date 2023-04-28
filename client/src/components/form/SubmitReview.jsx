@@ -29,7 +29,7 @@ export default function EmployeeSignup() {
         type="number"
         label="rating"
         id="email"
-        placeholder="Enter your rating"
+        placeholder="Enter your rating 1-10"
         required
       />
       <Input
