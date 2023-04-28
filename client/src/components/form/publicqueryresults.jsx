@@ -27,7 +27,11 @@ export default function PublicQueryList(prop) {
             {business.customers?.map((value) => (
               <li
                 className={`list-group-item w-64 items-center rounded-md ${
-                  value.rating > 5 ? "bg-green-300" : "bg-red-200"
+                  value.rating > 7
+                    ? "bg-green-300"
+                    : value.rating > 3
+                    ? "bg-orange-200"
+                    : "bg-red-200"
                 } bg p-2 text-center text-white`}
                 key={business._id}
               >
