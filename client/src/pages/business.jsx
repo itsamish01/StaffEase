@@ -83,27 +83,55 @@ export default function BusinessPage() {
   };
   if (data?.Business.paid) {
     return (
-      <main className=" flex flex-col items-center gap-y-2 px-4 text-center">
-        <h2>Business</h2>
-        <ul className="list-group">
+      <main className=" flex flex-col items-center space-y-2 text-center">
+        <h2>Business:</h2>
+        <ul className="list-group flex w-72 flex-col items-center space-y-2 rounded-md bg-slate-100 p-2">
           {/* Here we use the map method to iterate through each user and return a new array of list items for each user */}
-          <h3>{data?.Business.businessName}</h3>
-          Customer Ratings:
+          <h3 className="w-64 rounded-md bg-slate-500">
+            {data?.Business.businessName}
+          </h3>
+          <h4 className="w-64 items-center rounded-md bg-slate-500">
+            Customer Ratings:
+          </h4>
           {data?.Business.customers.map((value) => (
-            <li className="list-group-item" key={data.Business._id}>
+            <li
+              className={`list-group-item w-64 items-center rounded-md ${
+                value.rating > 7
+                  ? "bg-green-300"
+                  : value.rating > 3
+                  ? "bg-orange-200"
+                  : "bg-red-200"
+              }`}
+              key={data.Business._id}
+            >
               {`${value.rating} ${value.comment}`}
             </li>
           ))}
-          Employees:
+          <h4 className="w-64 items-center rounded-md bg-slate-500">
+            Employees:
+          </h4>
           {data?.Business.employees.map((value) => (
-            <li className="list-group-item" key={data.Business._id}>
-              {`${value?.firstName} ${value?.lastName} ${value?.clockedin} ${value?._id}`}
+            <li
+              className="list-group-item flex w-64 flex-col items-center space-y-2 rounded-md bg-slate-500 p-2"
+              key={data.Business._id}
+            >
+              <h4 className="list-group-item w-60 rounded-md bg-slate-400">{`${value?.firstName} ${value?.lastName}`}</h4>
+              <h5 className="list-group-item w-60 rounded-md bg-slate-300">{`Clockedin: ${value?.clockedin}`}</h5>
+              <h5 className="list-group-item w-60 rounded-md bg-slate-300">{`ID: ${value?._id}`}</h5>
             </li>
           ))}
-          Capacity Data:
-          <li>MaxCap: {data?.Business.maxCapacity}</li>
-          <li>CurrentCap: {data?.Business.currentCapacity}</li>
-          <li>Employees On: {data?.Business.employeeOnCount}</li>
+          <li className="w-64 items-center rounded-md bg-slate-500">
+            Employees On: {data?.Business.employeeOnCount}
+          </li>
+          <h4 className="w-64 items-center rounded-md bg-slate-500">
+            Capacity Data:
+          </h4>
+          <li className="w-64 items-center rounded-md bg-slate-500">
+            MaxCap: {data?.Business.maxCapacity}
+          </li>
+          <li className="w-64 items-center rounded-md bg-slate-500">
+            CurrentCap: {data?.Business.currentCapacity}
+          </li>
         </ul>
         <section className="flex flex-col items-center">
           <button
