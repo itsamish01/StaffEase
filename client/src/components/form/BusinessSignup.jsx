@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import Input from "./input";
 
 export default function BusinessSignup() {

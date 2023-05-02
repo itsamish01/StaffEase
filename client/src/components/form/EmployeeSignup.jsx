@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import Input from "./input";
 
 export default function EmployeeSignup() {
@@ -32,7 +31,6 @@ export default function EmployeeSignup() {
         placeholder="Enter your password"
         required
       />
-      
     </>
   );
 }

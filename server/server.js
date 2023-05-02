@@ -10,9 +10,8 @@ import { decodeToken } from "./middleware.js";
 import { Business } from "./models/Business.js";
 
 import Stripe from "stripe";
-const stripe = new Stripe(
-  "sk_test_51Msd5EIxLdcd64gLzZtsExg1n5m6TrOy1G6uAftpGJ4922N78j7gb9pzIcHoimTlbDJvCVDOmHUPc6jV4lsycRQI00CpMgY3By"
-);
+const { skStripeKey } = config;
+const stripe = new Stripe(skStripeKey);
 
 const { port } = config;
 

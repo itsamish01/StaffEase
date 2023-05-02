@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 
 export default function PublicQueryList(prop) {
-  const [isColor, setIsColor] = useState();
   return (
     <div className="container">
       <h1>Business:</h1>
