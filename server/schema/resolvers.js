@@ -4,9 +4,9 @@ import { Business } from "../models/Business.js";
 // import { Customer } from "../models/Customer.js";
 import Stripe from "stripe";
 import { request } from "express";
-const stripe = new Stripe(
-  "sk_test_51Msd5EIxLdcd64gLzZtsExg1n5m6TrOy1G6uAftpGJ4922N78j7gb9pzIcHoimTlbDJvCVDOmHUPc6jV4lsycRQI00CpMgY3By"
-);
+import config from "../config.js";
+const { skStripeKey } = config;
+const stripe = new Stripe(skStripeKey);
 
 const YOUR_DOMAIN = "http://localhost:5173";
 

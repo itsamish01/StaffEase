@@ -10,6 +10,6 @@ export default {
   mongoURL: process.env.MONGO_URL || "mongodb://127.0.0.1/StaffEase",
   port: process.env.PORT || 4000,
   saltRounds: process.env.SALT_ROUNDS || 10,
-  skStripeKey:
-    "sk_test_51Msd5EIxLdcd64gLzZtsExg1n5m6TrOy1G6uAftpGJ4922N78j7gb9pzIcHoimTlbDJvCVDOmHUPc6jV4lsycRQI00CpMgY3By",
+  skStripeKey: process.env.skStripeKey,
+  endpointSecret: process.env.whStripeSecret,
 };
