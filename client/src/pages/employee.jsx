@@ -1,40 +1,63 @@
-import PropTypes from "prop-types";
 import { useMutation } from "@apollo/client";
+import { useState } from "react";
 import { CLOCKIN } from "../schema/mutations";
-import { ClockinEmployee } from "../components/form";
 export default function EmployeePage() {
+  const [clockedIn, setClockedIn] = useState(false);
+  const [currentTime, setCurrentTime] = useState(null);
+  const [businessName, setBusinessName] = useState("");
   const [clockinEmployee, { error }] = useMutation(CLOCKIN);
-  const submitForm = async (event) => {
-    event.preventDefault();
-    const employeeFormData = {
-      businessName: event.target.businessName.value,
-    };
+
+  const handleInputChange = (e) => {
+    setBusinessName(e);
+  };
+  const handleClockIn = (isClockingIn) => {
+    if (!businessName) {
+      return;
+    }
+    setClockedIn(!!isClockingIn);
+    setCurrentTime(isClockingIn ? new Date() : null);
 
     try {
-      const { data } = await clockinEmployee({
-        variables: { ...employeeFormData },
+      clockinEmployee({
+        variables: { businessName },
       });
-      console.log(employeeFormData);
       location.replace("/");
+      setBusinessName("");
     } catch (err) {
       console.error(err);
     }
   };
+
   return (
     <main className="px-4 text-center">
-      <h2>Employee</h2>
-      <form
-        onSubmit={submitForm}
-        className="flex flex-col items-center gap-y-2 px-4"
-      >
-        <ClockinEmployee />
-        <button
-          type="submit"
-          className="button mt-4 bg-green-500 hover:bg-green-300"
-        >
-          ClockIn
-        </button>
-      </form>
+      <div className="EmployeeDashboard">
+        <h2>Employee Dashboard</h2>
+        <input
+          value={businessName}
+          style={{ color: "black" }}
+          onChange={(e) => {
+            handleInputChange(e.currentTarget.value);
+          }}
+        ></input>
+        {clockedIn ? (
+          <div>
+            <p>Clocked in at: {currentTime.toLocaleTimeString()}</p>
+            <button
+              className="button mt-4 bg-green-500 hover:bg-green-300"
+              onClick={() => handleClockIn(false)}
+            >
+              Clock Out
+            </button>
+          </div>
+        ) : (
+          <button
+            className="button mt-4 bg-green-500 hover:bg-green-300"
+            onClick={() => handleClockIn(true)}
+          >
+            Clock In
+          </button>
+        )}
+      </div>
     </main>
   );
 }

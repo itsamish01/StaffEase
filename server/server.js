@@ -4,8 +4,8 @@ import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHt
 import cors from "cors";
 import express from "express";
 import http from "http";
+import { resolvers, typeDefs } from "./app/schema/index.js";
 import config from "./config.js";
-import { resolvers, typeDefs } from "./schema/index.js";
 import { decodeToken } from "./middleware.js";
 import { Business } from "./models/Business.js";
 

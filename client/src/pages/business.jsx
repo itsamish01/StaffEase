@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ME } from "../schema/queries";
 import { SaveEmployee, RemoveEmployee } from "../components/form";
@@ -9,20 +8,20 @@ import {
 } from "../schema/mutations";
 
 export default function BusinessPage() {
-  const { loading, data } = useQuery(GET_ME);
-  const [saveEmployee, { error }] = useMutation(SAVE_EMPLOYEE, {
+  const { data } = useQuery(GET_ME);
+  const [saveEmployee] = useMutation(SAVE_EMPLOYEE, {
     refetchQueries: [
       { query: GET_ME }, // DocumentNode object parsed with gql
       "GetBusiness", // Query name
     ],
   });
-  const [removeEmployee, { error1 }] = useMutation(REMOVE_EMPLOYEE, {
+  const [removeEmployee] = useMutation(REMOVE_EMPLOYEE, {
     refetchQueries: [
       { query: GET_ME }, // DocumentNode object parsed with gql
       "GetBusiness", // Query name
     ],
   });
-  const [modCapacity, { error2 }] = useMutation(MOD_CAPACITY, {
+  const [modCapacity] = useMutation(MOD_CAPACITY, {
     refetchQueries: [
       { query: GET_ME }, // DocumentNode object parsed with gql
       "GetBusiness", // Query name
@@ -36,7 +35,7 @@ export default function BusinessPage() {
     };
 
     try {
-      const { data } = await saveEmployee({
+      await saveEmployee({
         variables: { ...employeeFormData },
       });
       console.log(employeeFormData);
@@ -51,7 +50,7 @@ export default function BusinessPage() {
     };
 
     try {
-      const { data } = await removeEmployee({
+      await removeEmployee({
         variables: { ...employeeFormData },
       });
     } catch (err) {
@@ -65,7 +64,7 @@ export default function BusinessPage() {
       currentCapacity: data?.Business.currentCapacity + 1,
     };
     try {
-      const { data } = await modCapacity({ variables: { ...addCapacityData } });
+      await modCapacity({ variables: { ...addCapacityData } });
     } catch (err) {
       console.error(err);
     }
@@ -76,7 +75,7 @@ export default function BusinessPage() {
       currentCapacity: data?.Business.currentCapacity - 1,
     };
     try {
-      const { data } = await modCapacity({ variables: { ...addCapacityData } });
+      await modCapacity({ variables: { ...addCapacityData } });
     } catch (err) {
       console.error(err);
     }

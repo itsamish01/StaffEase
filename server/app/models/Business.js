@@ -1,9 +1,9 @@
-import { Schema, model } from "mongoose";
-import { employeeSchema } from "./Employee.js";
-import { customerSchema } from "./Customer.js";
 import bcrypt from "bcrypt";
-import config from "../config.js";
-import { encodeToken, handleError } from "../utils.js";
+import { Schema, model } from "mongoose";
+import config from "../../config.js";
+import { encodeToken, handleError } from "../../utils.js";
+import { customerSchema } from "./Customer.js";
+import { employeeSchema } from "./Employee.js";
 
 const BusinessSchema = new Schema(
   {
