@@ -4,7 +4,7 @@ import { Employee } from "../models/Employee.js";
 // import { Customer } from "../models/Customer.js";
 import Stripe from "stripe";
 import { request } from "express";
-import config from "../config.js";
+import config from "../../config.js";
 const { skStripeKey } = config;
 const stripe = new Stripe(skStripeKey);
 

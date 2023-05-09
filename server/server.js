@@ -7,7 +7,7 @@ import http from "http";
 import { resolvers, typeDefs } from "./app/schema/index.js";
 import config from "./config.js";
 import { decodeToken } from "./middleware.js";
-import { Business } from "./models/Business.js";
+import { Business } from "./app/models/Business.js";
 
 import Stripe from "stripe";
 const { skStripeKey, endpointSecret } = config;
